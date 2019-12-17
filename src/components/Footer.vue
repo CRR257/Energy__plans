@@ -39,7 +39,7 @@ ul {
 li {
   padding: 1px;
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 600px){
   .footer {
     font-size: 11px;
   }

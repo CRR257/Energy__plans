@@ -1,10 +1,13 @@
 <template>
   <div class="container">
-    <div class="namecompany">ENERGY_PLANS</div>
+    <Header :name="title" class="namecompany"></Header>
     <nav>
       <ul>
-        <li class="navbar__item">
-          <router-link class="nav__link" to="/energyplans"
+        <li class="routes">
+          <router-link class="routes__link" to="/home"
+            >Home</router-link
+          >
+          <router-link class="routes__link" to="/energyplans"
             >Energy Plans</router-link
           >
         </li>
@@ -19,11 +22,18 @@
 
 <script>
 import Footer from './Footer.vue';
+import Header from './Header.vue';
 
 export default {
   name: 'Welcome',
   components: {
+    Header,
     Footer,
+  },
+  data() {
+    return {
+      title: 'Energy Plans',
+    };
   },
 };
 </script>
@@ -44,18 +54,14 @@ nav {
   top: 16px;
 }
 .container {
-  max-width: 800px;
+  width: 80%;
   margin: 0;
   margin-right: auto;
   margin-left: auto;
 }
-.navbar {
-  &__item {
-    display: inline-block;
-    padding: 5px 15px 0 0;
-    font-size: 18px;
-    border-right: 1px solid black;
-  }
+.routes {
+  display: inline-block;
+  font-size: 18px;
   &__link {
     font-size: 15px;
     letter-spacing: 1.4px;
@@ -70,13 +76,17 @@ ul {
   right: 40px;
 }
 .router-link-active {
-  color: white;
+  color: green;
 }
 .nav__link {
   text-decoration: none;
   color: inherit;
   font-size: 15px;
   letter-spacing: 1.4px;
+}
+a {
+  padding: 5px 15px 0 7px;
+  border-right: 1px solid black;
 }
 @media screen and (max-width: 500px){
   .nav__link {

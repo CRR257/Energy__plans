@@ -1,31 +1,34 @@
 <template>
-  <div>
-    <Header :name="title"></Header>
-    <div>
-      <router-link class="nav-link" :to="{ name: 'Welcome' }" exact
-        >Go to main page</router-link
-      >
-    </div>
-    <div class="container">
-      <div class="container__info">
+  <div class="energy">
+     <Header class="title" :name="title"></Header>
+      <div class="routes">
+        <router-link class="routes__link" to="/home"
+          >Home</router-link
+        >
+          <router-link class="routes__link" to="/energyplans"
+          >Energy Plans</router-link
+        >
+      </div>
+   <div class="fares">
+      <div class="fares__information">
         <span>
           At Energy_plans we have different plans with different prices depending
             on the hour of the day you use the energy:
         </span>
         <br />
         <span>
-          - The easiest one is the <span class="fare__one">"unprecio"</span> which
+          - The easiest one is the <span class="fare fare__one">"unprecio"</span> which
             has 1 period so you pay energy at the same price all day
         </span>
         <br />
         <span>
-          - Then we have a more clever option which is <span class="fare__two">
+          - Then we have a more clever option which is <span class="fare fare__two">
             "dosprecios"</span> which has one price from 13h to 23h and another
             price on the rest of hours
         </span>
         <br />
         <span>
-          - And finally, companies can benefit from <span class="fare__tree">
+          - And finally, companies can benefit from <span class="fare fare__tree">
             "3.0a"</span> which has multiple periods with multiple prices.
         </span>
       </div>
@@ -120,10 +123,6 @@ export default {
         },
         options: {
           responsive: true,
-          title: {
-            display: true,
-            text: 'Show fares',
-          },
           lineTension: 1,
           scales: {
             yAxes: [
@@ -133,7 +132,7 @@ export default {
                 },
                 scaleLabel: {
                   display: true,
-                  labelString: 'Prices in euro cents',
+                  labelString: 'Prices in euros',
                 },
               },
             ],
@@ -157,23 +156,48 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav-link {
-  position: absolute;
-  top: 66px;
-  left: 12px;
-  font-size: 15px;
-  letter-spacing: 1.4px;
-  padding: 5px 15px 0 0;
+
+.routes {
+  display: flex;
+  font-size: 18px;
+  &__link {
+    top: 25px;
+    position: relative;
+    font-size: 15px;
+    letter-spacing: 1.4px;
+    color:black;
+    text-decoration: unset;
+  }
+}
+.router-link-active {
+  color: green;
+}
+a {
+  padding: 5px 15px 0 7px;
   border-right: 1px solid black;
 }
-.container {
+.energy {
+  width: 80%;
+  margin: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+.title {
+  font-family: "Rubik", sans-serif;
+  font-size: 20px;
+  color: #ff3f3f;
+  position: relative;
+  display: flex;
+  top: 16px;
+}
+.fares{
   max-width: 1000px;
   margin: 0;
   margin-right: auto;
   margin-left: auto;
-  &__info {
+  &__information{
     position: relative;
-    top: 8rem;
+    top: 4rem;
     text-align: left;
   }
 }
@@ -186,17 +210,19 @@ span {
 }
 .energy__chart {
   position: relative;
-  top: 8rem;
+  top: 3rem;
 }
 .fare {
+  border-radius: 3px;
+  padding: 1px 2px;
   &__one {
-    background-color: red;
+    background-color: #ff0000ba;
   }
   &__two {
-  background-color: blue;
+    background-color: #0762c9ab;
   }
   &__tree {
-  background-color: orange;
+  background-color: #ffa500bd;
   }
 }
 </style>
