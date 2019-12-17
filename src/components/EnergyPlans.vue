@@ -49,10 +49,8 @@ export default {
   data() {
     return {
       fares: pricesData,
-      loaded: false,
       parsedFaresChart: [],
       data: [],
-      hoursFirstPrice: [],
       title: 'Energy Plans',
     };
   },
@@ -66,20 +64,29 @@ export default {
     getChart() {
       const parsedPrices = {};
       const faresData = Object.entries(this.fares);
+      /* Object.entries(this.fares) returns the fares object as an array like
+          faresData = [
+            ["unprecio", [{"0-23":0.123}]],
+            ["dosprecios", [{"0-13": 0.079}, {"14-23": 0.074}]],
+            ...
+          ]
+      */
       faresData.forEach((fare) => {
         const fareName = fare[0];
         const fareInfo = fare[1];
         let priceArr = [];
         fareInfo.forEach((hourSegment) => {
           const hourSegmentInterval = Object.keys(hourSegment)[0];
+          /* Object.keys always returns an array, need to get the only string
+          we have inside position 0 */
           const hourSegmentPrice = Object.values(hourSegment)[0];
+          /* Same as above */
           const init = hourSegmentInterval.substring(0, hourSegmentInterval.indexOf('-'));
           const end = hourSegmentInterval.substring(hourSegmentInterval.indexOf('-') + 1);
           priceArr = priceArr.concat(Array(end - init + 1).fill(hourSegmentPrice));
         });
         parsedPrices[fareName] = priceArr;
       });
-      console.log(parsedPrices);
       const keys = Object.keys(parsedPrices);
       const values = Object.values(parsedPrices);
       for (let i = 0; i < keys.length; i += 1) {
@@ -122,6 +129,11 @@ export default {
           ],
         },
         options: {
+          tooltips: {
+            callbacks: {
+              label: tooltipItem => (Number(tooltipItem.yLabel).toFixed(3)),
+            },
+          },
           responsive: true,
           lineTension: 1,
           scales: {
@@ -129,6 +141,7 @@ export default {
               {
                 ticks: {
                   beginAtZero: true,
+                  callback: value => (`${value.toFixed(3)}€`),
                 },
                 scaleLabel: {
                   display: true,
