@@ -4,7 +4,7 @@
     <nav>
       <ul>
         <li class="routes">
-          <router-link class="routes__link" to="/home"
+          <router-link class="routes__link" to="/" exact
             >Home</router-link
           >
           <router-link class="routes__link" to="/energyplans"

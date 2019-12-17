@@ -2,7 +2,7 @@
   <div class="energy">
      <Header class="title" :name="title"></Header>
       <div class="routes">
-        <router-link class="routes__link" to="/home"
+        <router-link class="routes__link" to="/" exact
           >Home</router-link
         >
           <router-link class="routes__link" to="/energyplans"
