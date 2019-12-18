@@ -1,18 +1,10 @@
 <template>
   <div class="energy">
-     <Header class="title" :name="title"></Header>
-      <div class="routes">
-        <router-link class="routes__link" to="/" exact
-          >Home</router-link
-        >
-          <router-link class="routes__link" to="/energyplans"
-          >Energy Plans</router-link
-        >
-      </div>
+  <Header />
    <div class="fares">
       <div class="fares__information">
         <span>
-          At Energy_plans we have different plans with different prices depending
+          At Energy plans we have different plans with different prices depending
             on the hour of the day you use the energy:
         </span>
         <br />
@@ -51,7 +43,6 @@ export default {
       fares: pricesData,
       parsedFaresChart: [],
       data: [],
-      title: 'Energy Plans',
     };
   },
   components: {
@@ -177,7 +168,6 @@ export default {
     top: 25px;
     position: relative;
     font-size: 15px;
-    letter-spacing: 1.4px;
     color:black;
     text-decoration: unset;
   }
@@ -194,17 +184,10 @@ a {
   margin: 0;
   margin-right: auto;
   margin-left: auto;
-}
-.title {
-  font-family: "Rubik", sans-serif;
-  font-size: 20px;
-  color: #ff3f3f;
-  position: relative;
-  display: flex;
-  top: 16px;
+  margin-top: 20px;
 }
 .fares{
-  max-width: 1000px;
+  max-width: 80%;
   margin: 0;
   margin-right: auto;
   margin-left: auto;
@@ -215,7 +198,7 @@ a {
   }
 }
 canvas {
-  padding: 3rem 0;
+  padding: 4rem 0;
 }
 span {
   letter-spacing: 1.1px;

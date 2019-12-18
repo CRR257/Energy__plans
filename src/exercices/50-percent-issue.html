@@ -2,8 +2,8 @@
    <head>
    <style>
        html, body{width:100%; padding:0;}
-       .block1{width:49.5%; height:50px; background:red; padding: 0;}
-       .block2{width:49.5%; height:50px; background:green; padding: 0;}
+       .block1{width:49.6%; height:50px; display:inline-block; background:red; padding: 0;}
+       .block2{width:49.6%; height:50px; display:inline-block; background:green; padding: 0;}
    </style>
    </head>
    <body>
@@ -13,5 +13,11 @@
 </html>
 
 <script>
-    /* I */
+    /* Display inline-block elements respect the whitespace between divs in the html. You can remove 
+    the space between your inline divs in the html,like this:
+     <body>
+       <div class="block1"></div><div class="block2"></div>
+    </body>
+    
+    or reduce each div's % width, or wrap the divs in a div and aply it flexbox. */
 </script>

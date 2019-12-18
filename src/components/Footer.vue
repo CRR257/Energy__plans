@@ -20,9 +20,8 @@ export default {
   height: 70px;
   background-color: rgba(10, 0, 0, 0.96);
   width: 100%;
-  margin-top: -5px;
   &__links {
-    padding: 8px 10px;
+    padding: 8px 7px;
     cursor: pointer;
   }
 }
@@ -33,7 +32,7 @@ ul {
   list-style-type: none;
   justify-content: center;
   position: relative;
-  top: 15px;
+  top: 30px;
   padding: 0;
 }
 li {
@@ -41,7 +40,15 @@ li {
 }
 @media screen and (max-width: 600px){
   .footer {
+    font-size: 8px;
+  }
+}
+@media screen and (min-width: 600px){
+    .footer {
     font-size: 11px;
+    &__links {
+       padding: 8px 14px;
+    }
   }
 }
 </style>

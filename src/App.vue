@@ -22,11 +22,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-}
-.nav-link {
-  font-size: 15px;
   letter-spacing: 1.4px;
-  text-decoration: none;
-  color: inherit;
 }
 </style>
