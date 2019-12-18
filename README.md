@@ -7,6 +7,9 @@ App to show the the price during the day of three differents fares: unprecio,dos
 
 User can click on a fare's chart label to hide the fare selected. If it's cliked again it's shown.
 
+https://energy-plans-crr257.firebaseapp.com
+
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
@@ -27,4 +30,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Technologies
 
-VueJS && JS && Chart.js && SASS
+VueJS && JS && Chart.js && SASS && Firebase
